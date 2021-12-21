@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package messages;
+
+// message, enum should be define in package level
+option java_multiple_files = true;
+
+message CMIXText {
+    string text = 1;
+    TextReply reply = 2;
+    TextNetworkPreview preview = 3;
+}
+
+message TextNetworkPreview {
+    string url = 1;
+    string title = 2;
+    bytes image = 3;
+}
+
+message TextReply {
+    string message = 1;
+    bytes senderId = 2;
+    bytes uniqueId = 3;
+    TextNetworkPreview preview = 4;
+}
+
+message Report {
+    bytes reporterId = 1;
+    bytes reportedId = 2;
+    repeated string messages = 3;
+}
